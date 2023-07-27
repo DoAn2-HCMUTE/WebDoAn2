@@ -64,15 +64,7 @@ firebase.database().ref("/DHT11/temp").on("value",function(snapshot){
   var eCO2Data = [eCO2];
   var MQ135Data = [mq135];
 
-//   function updateChart() {
-//     chart.data.datasets[0].data = TempData;
-//     chart.data.datasets[1].data = HumidityData;
-//     chart.data.datasets[2].data = dustData;
-//     chart.data.datasets[3].data = tvocData;
-//     chart.data.datasets[4].data = eco2Data;
-//     chart.data.datasets[5].data = mq135Data;
-//     chart.update();
-//   }
+
   const chart = new Chart("myChart", {
     type: "line",
     data: {
