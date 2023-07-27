@@ -51,6 +51,7 @@ firebase.database().ref("/DHT11/temp").on("value",function(snapshot){
     document.getElementById("MQ135").innerHTML = mq135;
     console.log(mq135);
   });
+  // set ngưỡng trên web
   firebase.database().ref("/SGP30_SenSor/Thresh_Hold/TVOC").on("value",function(snapshot){
     thrtvoc = snapshot.val();  
     document.getElementById("sliderngangIdTVOC").value = thrtvoc;
