@@ -1,0 +1,194 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!DOCTYPE html>
+<!-- 
+    1. h1 - h6 - heading - tiêu đề theo cỡ chữ lớn đến nhỏ
+    2. p - paragrap - đoạn văn
+    3. img - image - hình ảnh
+    4. a - anchor - 1 thẻ liên kết
+    5, ul, li - unorderedlist, list item - hiển thị dạng danh sách
+    6. table - bảng ( thead (th) là tiêu đề đầu bảng , t body (tr(td)) là thân bảng)
+    7. input - có 1 khung để nhập chữ vào
+     gồm 3 type : checkbox - tạo ra dấu tích, radio - hình tròn và chỉ chọn 1 cái khi chung 1 tên, text
+    8. button - nút nhấn
+    9. div - tạo khối bao quanh các phần tử
+ -->
+<html>
+    <!--Phần đầu-->
+    <head>
+        <title> HỆ THỐNG GIÁM SÁT KHÔNG KHÍ </title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    </head>
+
+    <!--Phần thân-->
+    <body>
+        <div class="box1">
+            <h1>HỆ THỐNG GIÁM SÁT KHÔNG KHÍ </h1>
+        </div>  
+        <div> 
+        <ul class="thongso">
+            <li>
+                <i class="fa-solid fa-temperature-three-quarters"></i>
+                <span class="text">
+                    <h2><span id="nhietdo">None</span>°C</h2>
+                    <p>Temp</p> 
+                    <div>
+                        <input type="range" min="0" max="100" value="50" class="slider" id="sliderngangId">
+                    </div>
+                </span>
+            </li>
+            <li>
+                <i class="fa-solid fa-droplet"></i>
+                <span class="text">
+                    <h2><span id="doam">None</span>%</h2>
+                    <p>Humidity</p> 
+                    <div>
+                        <input type="range" min="0" max="100" value="50" class="slider" id="sliderngangId">
+                    </div>
+                </span>
+            </li>
+            <li>
+                <i class="fa-solid fa-fire-flame-simple"></i>
+                <span class="text">
+                    <h2><span id="TVOC">None</span> ppm</h2>
+                    <p>TVOC</p> 
+                    <div>
+                        <input type="range" min="0" max="100" value="50" class="slider" id="sliderngangId">
+                    </div>
+                </span>
+            </li>
+            <li>
+                <i class="fa-solid fa-sun"></i>
+                <span class="text">
+                    <h2><span id="CO2">None</span> ppm</h2>
+                    <p>eCO2</p> 
+                    <div>
+                        <input type="range" min="0" max="100" value="50" class="slider" id="sliderngangId">
+                    </div>
+                </span>
+            </li>
+            <li>
+                <i class="fa-solid fa-meteor"></i>
+                <span class="text">
+                    <h2><span id="Dust">None</span> %</h2>
+                    <p>Dust</p> 
+                    <div>
+                        <input type="range" min="0" max="100" value="50" class="slider" id="sliderngangId">
+                    </div>
+                </span>
+               
+            </li>
+            <li>
+                <i class="fa-solid fa-virus"></i>
+                <span class="text">
+                    <h2><span id="MQ135">None</span> ppm</h2>
+                    <p>NH3</p> 
+                    <div>
+                        <input type="range" min="0" max="100" value="50" class="slider" id="sliderngangId">
+                    </div>
+                </span>
+               
+            </li>
+        </ul>
+        </div>  
+        <br>
+        <br> 
+
+        <div class="dothi">
+            <canvas id="myChart" style="width:100%;max-width:1000px"></canvas>
+          
+            <script>
+              const xValues = ['Temp', 'Humidity', 'Dust', 'TVOC', 'eCO2', 'MQ135'];
+          
+              new Chart("myChart", {
+                type: "line",
+                data: {
+                  labels: xValues,
+                  datasets: [{
+                    label: "Temp",
+                    data: [25, 60, 40, 50, 300, 70], // Add MQ135 data here, I assumed it to be 70
+                    borderColor: "red",
+                    fill: false
+                  }, {
+                    label: "Humidity",
+                    data: [28, 65, 45, 55, 320, 80], 
+                    borderColor: "green",
+                    fill: false
+                  }, {
+                    label: "Dust",
+                    data: [22, 70, 50, 40, 280, 60], 
+                    borderColor: "blue",
+                    fill: false
+                  }, {
+                    label: "TVOC",
+                    data: [30, 75, 35, 60, 350, 90],
+                    borderColor: "purple",
+                    fill: false
+                  }, {
+                    label: "eCO2",
+                    data: [0, 0, 10, 15, 26, 10], 
+                    borderColor: "orange",
+                    fill: false
+                  }, {
+                    label: "MQ135",
+                    data: [0, 0, 0, 0, 0, 0],
+                    borderColor: "cyan",
+                    fill: false
+                  }]
+                },
+                options: {
+                  scales: {
+                    y: {
+                      beginAtZero: true
+                    }
+                  }
+                }
+              });
+            </script>
+          </div>
+          
+        <div class="box">
+            <div class="box-1">
+                <h3>
+                    <img src="https://scontent.fsgn2-7.fna.fbcdn.net/v/t39.30808-6/357733525_979487553179594_2899234819852888982_n.jpg?_nc_cat=100&cb=99be929b-3346023f&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=YswbCUQyE8EAX9p4JA9&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfCz2u7XUkRttxWWz9DyuPbzpzXJshqaIm7osumnygzwNA&oe=64C1CFAB" alt="" style="width: 170px; height: 250px;"><br> <br>
+                    <a href="https://www.facebook.com/profile.php?id=100033550754099">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <span class="text">Lưu Thị Mỹ Dung </span> <br> <br>
+                    </a>
+                    MSSV 20119207
+                </h3>
+                
+            </div>
+            <div class="box-1">
+
+                <h3>
+                    <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/358063898_807315424326628_2798804619076998978_n.jpg?_nc_cat=102&cb=99be929b-3346023f&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=OdZCItHgLhkAX9exVs6&_nc_ht=scontent.fsgn2-8.fna&oh=00_AfBRhh-qEMi3prSsIENqngaoINc-na5DyLcSOAY1CxmVdw&oe=64C00B14" alt="" style="width: 230px; height: 250px;"><br> <br>
+                    <a href="https://www.facebook.com/profile.php?id=100038002687294">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <span class="text">Võ Lê Nguyên </span> <br> <br>
+                    </a>
+                    MSSV 20119020
+                </h3>
+                
+            </div>
+            <div class="box-1">
+                <h3>
+                    <img src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t1.6435-9/62479791_102360987707324_8268494214455623680_n.jpg?_nc_cat=110&cb=99be929b-3346023f&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=BGqIthELv1IAX-xWfgz&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfBRJrfyIkWNFVyyzXep_PyRQ-EyPp9Pm_UkE3mujNNbJw&oe=64E36F81" alt="" style="width: 230px; height: 200px;"><br> <br>
+                    Giảng viên hướng dẫn <br> <br>
+                    <a href="https://www.facebook.com/profile.php?id=100038002687294">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <span class="text">Huỳnh Hoàng Hà </span> <br> <br>
+                    </a>
+                    
+                    </h3>
+            </div>
+        </div>
+    
+        <script src="doan2.js"> </script>
+       
+    </body>
+</html>
