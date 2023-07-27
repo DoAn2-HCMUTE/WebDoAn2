@@ -13,41 +13,49 @@ const firebaseConfig = {
 var sliderngangTemp = document.getElementById("sliderngangTemp");
 var sliderngangHumidity = document.getElementById("sliderngangHumidity");
 
-
-
+var nd ;
+var da;
+var tvoc;
+var eCO2;
+var dust;
+var mq135;
+var thrtvoc;
 firebase.database().ref("/DHT11/temp").on("value",function(snapshot){
-    var nd = snapshot.val();  
-    
+     nd = snapshot.val();  
     document.getElementById("nhietdo").innerHTML = nd;
     console.log(nd);
   });
   //console.log(document.getElementById( document.getElementById("nhietdo")));
   firebase.database().ref("/DHT11/hum").on("value",function(snapshot){
-    var da = snapshot.val();  
+    da = snapshot.val();  
     document.getElementById("doam").innerHTML = da;
     console.log(da);
   });
   firebase.database().ref("/SGP30_SenSor/Data/TVOC").on("value",function(snapshot){
-    var tvoc = snapshot.val();  
+    tvoc = snapshot.val();  
     document.getElementById("TVOC").innerHTML = tvoc;
     console.log(tvoc);
   });
   firebase.database().ref("/SGP30_SenSor/Data/eCO2").on("value",function(snapshot){
-    var eCO2 = snapshot.val();  
+    eCO2 = snapshot.val();  
     document.getElementById("CO2").innerHTML = eCO2;
     console.log(eCO2);
   });
   firebase.database().ref("/DustSenSor/Data").on("value",function(snapshot){
-    var dust = snapshot.val();  
+    dust = snapshot.val();  
     document.getElementById("Dust").innerHTML = dust;
     console.log(dust);
   });
   firebase.database().ref("/MQ135/Data").on("value",function(snapshot){
-    var mq135 = snapshot.val();  
+    mq135 = snapshot.val();  
     document.getElementById("MQ135").innerHTML = mq135;
     console.log(mq135);
   });
-
+  firebase.database().ref("/SGP30_SenSor/Thresh_Hold/TVOC").on("value",function(snapshot){
+    thrtvoc = snapshot.val();  
+    document.getElementById("sliderngangIdTVOC").value = thrtvoc;
+    console.log(thrtvoc);
+  });
   var TempData = [nd];
   var HumidityData = [da];
   var DustData = [dust];
