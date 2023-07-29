@@ -57,6 +57,13 @@ firebase.database().ref("/DHT11/temp").on("value",function(snapshot){
     document.getElementById("sliderngangIdTVOC").value = thrtvoc;
     console.log(thrtvoc);
   });
+  var thrco2;
+  firebase.database().ref("/SGP30_SenSor/Thresh_Hold/eCO2").on("value",function(snapshot){
+    thrco2 = snapshot.val();  
+    document.getElementById("sliderngangIdeCO2").value = thrco2;
+    console.log(thrco2);
+  });
+
   var TempData = [nd];
   var HumidityData = [da];
   var DustData = [dust];
