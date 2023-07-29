@@ -12,7 +12,7 @@
     8. button - nút nhấn
     9. div - tạo khối bao quanh các phần tử
  -->
-<html>
+
     <!--Phần đầu-->
     <head>
         <title> HỆ THỐNG GIÁM SÁT KHÔNG KHÍ </title>
@@ -22,6 +22,8 @@
         <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
 
     <!--Phần thân-->
@@ -57,7 +59,7 @@
                     <h2><span id="TVOC">None</span> ppm</h2>
                     <p>TVOC</p> 
                     <div>
-                        <input type="range" min="0" max="1000" value="50" class="slider" id="sliderngangIdTVOC">
+                        <input type="range" min="0" max="1000" value="500" class="slider" id="sliderngangIdTVOC">
                     </div>
                 </span>
             </li>
@@ -67,7 +69,7 @@
                     <h2><span id="CO2">None</span> ppm</h2>
                     <p>eCO2</p> 
                     <div>
-                        <input type="range" min="0" max="1500" value="50" class="slider" id="sliderngangIdeCO2">
+                        <input type="range" min="0" max="100" value="50" class="slider" id="sliderngangId">
                     </div>
                 </span>
             </li>
@@ -95,66 +97,11 @@
             </li>
         </ul>
         </div>  
-        <br>
-        <br> 
-
-        <div class="dothi">
-            <canvas id="myChart" style="width:100%;max-width:1000px"></canvas>
-          
-            <script>
-              const xValues = ['Temp', 'Humidity', 'Dust', 'TVOC', 'eCO2', 'MQ135'];
-          
-              new Chart("myChart", {
-                type: "line",
-                data: {
-                  labels: xValues,
-                  datasets: [{
-                    label: "Temp",
-                    data: [25, 60, 40, 50, 300, 70], // Add MQ135 data here, I assumed it to be 70
-                    borderColor: "red",
-                    fill: false
-                  }, {
-                    label: "Humidity",
-                    data: [28, 65, 45, 55, 320, 80], 
-                    borderColor: "green",
-                    fill: false
-                  }, {
-                    label: "Dust",
-                    data: [22, 70, 50, 40, 280, 60], 
-                    borderColor: "blue",
-                    fill: false
-                  }, {
-                    label: "TVOC",
-                    data: [30, 75, 35, 60, 350, 90],
-                    borderColor: "purple",
-                    fill: false
-                  }, {
-                    label: "eCO2",
-                    data: [0, 0, 10, 15, 26, 10], 
-                    borderColor: "orange",
-                    fill: false
-                  }, {
-                    label: "MQ135",
-                    data: [0, 0, 0, 0, 0, 0],
-                    borderColor: "cyan",
-                    fill: false
-                  }]
-                },
-                options: {
-                  scales: {
-                    y: {
-                      beginAtZero: true
-                    }
-                  }
-                }
-              });
-            </script>
-          </div>
-          
+       
         <div class="box">
             <div class="box-1">
                 <h3>
-                    <img src="https://scontent.fsgn2-7.fna.fbcdn.net/v/t39.30808-6/357733525_979487553179594_2899234819852888982_n.jpg?_nc_cat=100&cb=99be929b-3346023f&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=YswbCUQyE8EAX9p4JA9&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfCz2u7XUkRttxWWz9DyuPbzpzXJshqaIm7osumnygzwNA&oe=64C1CFAB" alt="" style="width: 170px; height: 250px;"><br> <br>
+                    <img src="https://scontent.fsgn2-7.fna.fbcdn.net/v/t39.30808-6/273164484_660448701750149_8233757282221629717_n.jpg?_nc_cat=100&cb=99be929b-3346023f&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=cwpOzpZ6GRIAX_50Fty&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfCGZfpEyusEiKqmygIkik0kMQ2TWmayrmZ3Qn8M_N2Tog&oe=64C73DF0" alt="" style="width: 230px; height: 250px;"><br> <br>
                     <a href="https://www.facebook.com/profile.php?id=100033550754099">
                         <i class="fa-solid fa-circle-user"></i>
                         <span class="text">Lưu Thị Mỹ Dung </span> <br> <br>
@@ -166,7 +113,7 @@
             <div class="box-1">
 
                 <h3>
-                    <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/358063898_807315424326628_2798804619076998978_n.jpg?_nc_cat=102&cb=99be929b-3346023f&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=OdZCItHgLhkAX9exVs6&_nc_ht=scontent.fsgn2-8.fna&oh=00_AfBRhh-qEMi3prSsIENqngaoINc-na5DyLcSOAY1CxmVdw&oe=64C00B14" alt="" style="width: 230px; height: 250px;"><br> <br>
+                    <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/358063898_807315424326628_2798804619076998978_n.jpg?_nc_cat=102&cb=99be929b-3346023f&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=OdZCItHgLhkAX9exVs6&_nc_ht=scontent.fsgn2-8.fna&oh=00_AfBRhh-qEMi3prSsIENqngaoINc-na5DyLcSOAY1CxmVdw&oe=64C00B14" alt="" style="width: 250px; height: 250px;"><br> <br>
                     <a href="https://www.facebook.com/profile.php?id=100038002687294">
                         <i class="fa-solid fa-circle-user"></i>
                         <span class="text">Võ Lê Nguyên </span> <br> <br>
@@ -177,7 +124,7 @@
             </div>
             <div class="box-1">
                 <h3>
-                    <img src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t1.6435-9/62479791_102360987707324_8268494214455623680_n.jpg?_nc_cat=110&cb=99be929b-3346023f&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=BGqIthELv1IAX-xWfgz&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfBRJrfyIkWNFVyyzXep_PyRQ-EyPp9Pm_UkE3mujNNbJw&oe=64E36F81" alt="" style="width: 230px; height: 200px;"><br> <br>
+                    <img src="data:image/jpeg;base64,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" alt="" style="width: 280px; height: 250px;"><br> <br>
                     Giảng viên hướng dẫn <br> <br>
                     <a href="https://www.facebook.com/profile.php?id=100038002687294">
                         <i class="fa-solid fa-circle-user"></i>
