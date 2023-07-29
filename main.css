@@ -125,7 +125,10 @@ h1{
   display: flex;
   justify-content: center;
   color: black;
- text-decoration: none;
+ 
+}
+.box-1.text{
+  text-decoration: none;
 }
 .box-1:nth-child(1) {
   background-color: var(--light-red);
