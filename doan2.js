@@ -76,3 +76,8 @@ firebase.database().ref("/MQ135/Thresh_Hold").on("value",function(snapshot){
   document.getElementById("sliderngangIdMQ135").value = thrmq135;
   console.log(thrmq135);
 });
+
+
+if(tvoc > thrtvoc){
+  alert("Vượt Ngưỡng");
+}
