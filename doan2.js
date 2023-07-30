@@ -56,6 +56,11 @@ firebase.database().ref("/SGP30_SenSor/Thresh_Hold/TVOC").on("value",function(sn
   thrtvoc = snapshot.val();  
   document.getElementById("sliderngangIdTVOC").value = thrtvoc;
   console.log(thrtvoc);
+  if(tvoc > thrtvoc){
+    alert("Vượt ngưỡng");
+    console.log("vượt ngưỡng cho phép");
+  }
+
   
 });
 var thrco2;
@@ -63,23 +68,29 @@ firebase.database().ref("/SGP30_SenSor/Thresh_Hold/eCO2").on("value",function(sn
   thrco2 = snapshot.val();  
   document.getElementById("sliderngangIdeCO2").value = thrco2;
   console.log(thrco2);
+  if(eCO2 > thrco2){
+    alert("Vượt ngưỡng");
+    console.log("vượt ngưỡng cho phép");
+  }
 });
 var thrDust;
 firebase.database().ref("/DustSenSor/Thresh_Hold").on("value",function(snapshot){
   thrDust = snapshot.val();  
   document.getElementById("sliderngangIdDust").value = thrDust;
   console.log(thrDust);
+  if(dust > thrDust){
+    alert("Vượt ngưỡng");
+    console.log("vượt ngưỡng cho phép");
+  }
 });
 var thrmq135;
 firebase.database().ref("/MQ135/Thresh_Hold").on("value",function(snapshot){
   thrmq135 = snapshot.val();  
   document.getElementById("sliderngangIdMQ135").value = thrmq135;
   console.log(thrmq135);
+  if(mq135 > thrmq135){
+    alert("Vượt ngưỡng");
+    console.log("vượt ngưỡng cho phép");
+  }
 });
-
-
-if(tvoc > thrtvoc){
-  alert("Vượt ngưỡng");
-  console.log("vượt ngưỡng cho phép");
-}
 
