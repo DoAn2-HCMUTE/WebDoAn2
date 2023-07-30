@@ -58,7 +58,21 @@ firebase.database().ref("/SGP30_SenSor/Thresh_Hold/TVOC").on("value",function(sn
   console.log(thrtvoc);
   
 });
-
-
-
-
+var thrco2;
+firebase.database().ref("/SGP30_SenSor/Thresh_Hold/eCO2").on("value",function(snapshot){
+  thrco2 = snapshot.val();  
+  document.getElementById("sliderngangIdeCO2").value = thrco2;
+  console.log(thrco2);
+});
+var thrDust;
+firebase.database().ref("/DustSenSor/Thresh_Hold").on("value",function(snapshot){
+  thrDust = snapshot.val();  
+  document.getElementById("sliderngangIdDust").value = thrDust;
+  console.log(thrDust);
+});
+var thrmq135;
+firebase.database().ref("/DustSenSor/Thresh_Hold").on("value",function(snapshot){
+  thrmq135 = snapshot.val();  
+  document.getElementById("sliderngangIdDust").value = thrmq135;
+  console.log(thrmq135);
+});
