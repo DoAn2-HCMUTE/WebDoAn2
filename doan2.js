@@ -78,6 +78,7 @@ firebase.database().ref("/MQ135/Thresh_Hold").on("value",function(snapshot){
 });
 
 
-if(tvoc > thrtvoc){
-  alert("Vượt Ngưỡng");
+
+function newFunction() {
+  return "Vượt Ngưỡng";
 }
