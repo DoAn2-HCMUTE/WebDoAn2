@@ -80,5 +80,6 @@ firebase.database().ref("/MQ135/Thresh_Hold").on("value",function(snapshot){
 
 if(tvoc > thrtvoc){
   alert("Vượt ngưỡng");
+  console.log("vượt ngưỡng cho phép");
 }
 
