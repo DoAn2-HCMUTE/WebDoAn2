@@ -73,6 +73,6 @@ firebase.database().ref("/DustSenSor/Thresh_Hold").on("value",function(snapshot)
 var thrmq135;
 firebase.database().ref("/MQ135/Thresh_Hold").on("value",function(snapshot){
   thrmq135 = snapshot.val();  
-  document.getElementById("sliderngangIdDust").value = thrmq135;
+  document.getElementById("sliderngangIdMQ135").value = thrmq135;
   console.log(thrmq135);
 });
